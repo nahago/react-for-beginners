@@ -10,8 +10,8 @@ function Detail() {
          console.log(json);
    };
    useEffect(() => {
-     getMovie();
-      },[]);
+      getMovie();
+   }, [])
    return <h1>Detail</h1>;
 }
 
