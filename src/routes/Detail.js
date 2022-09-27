@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 
-function Detail() {
+function Detail({ coverImg, title, year, summary, genres }) {
    const { id } = useParams();
    const getMovie = async () => {
       const json = await(
@@ -12,7 +12,19 @@ function Detail() {
    useEffect(() => {
       getMovie();
    }, [])
-   return <h1>Detail.</h1>;
+   return (
+   <div>
+      <img src={coverImg} alt={title}/>
+      <div>
+        <p>{summary}</p>
+        <ul>
+          {genres.map((g) => (
+            <li key={g}>{g}</li>
+          ))}
+        </ul>
+      </div>
+    </div>
+   );
 }
 
 export default Detail;
